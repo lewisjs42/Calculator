@@ -1,80 +1,68 @@
 body {
 	font-family: Arial;
+	font-size: 24px;
+	font-weight: bold;
 	margin: 0;
 	padding: 0;
+	background-color: #4CAF50;
 }
 
 #calculator {
 	position: fixed;
 	top: 50%;
 	left: 50%;
-	width: 500px;
+	width: 300px;
 	transform: translate(-50%, -50%);
 }
 
-@media (max-width: 800px) {
-  /* CSS that should be displayed if width is equal to or less than 800px goes here */
-	#calculator {
-		width: 100%;
-		height: 100%;
-		position:absolute;
-		bottom:0;
-	}
-}
-
 #display {
-	font-size: 25px;
+	border-radius: 50px;
+	margin-bottom: 5px;
+	padding-right: 30px;
+	color: #ffffff;
+	font-size: 40px;
 	text-align: right;
-	height: 100px;
-	line-height: 100px;
-	border: 1px solid;
-	
-	border-top: 1px solid #DADADA;
-	border-right: 1px solid #DADADA;
-	border-bottom: 0px;
-	border-left: 1px solid #DADADA;
+	height: 70px;
+	line-height: 70px;
+	background-color: #43A047;
 }
 
 button {
 	background-color: #FFFFFF;
-	font-size: 12px;
-	
-	border-top: 1px solid #DADADA;
-	border-right: 0px;
-	border-bottom: 0px;
-	border-left: 1px solid #DADADA;
-	
-	
-	width: 25%;
-	height: 50px;
-	float: left; /* Removes the space between buttons */
+	border: none;
+	border-radius: 100%;
+	margin: 10px 10px 0px 0px;
+	width: 60px;
+	height: 60px;
+	font-size: inherit;
+	color: #4CAF50;
 	cursor: pointer;
+	
+	/* Adds shadows under the buttons */
+	-webkit-box-shadow: 0 8px 6px -6px #1B5E20;
+	-moz-box-shadow: 0 8px 6px -6px #1B5E20;
+	box-shadow: 0 8px 6px -6px #1B5E20;
 }
 
-
-.buttonBorderBottom {
-	border-bottom: 1px solid #DADADA;}
-
 button:hover {
-	background-color: #DADADA;
+	background-color: #FFEB3B;
+	color: #000000;
 }
 
 button:active {
-	background-color: #CACACA;
+	background-color: #FFEB3B;
+	color: #000000;
 	padding: 0;
 }
 
 .bigButton {
-	width: 50%;
+	width: 135px;
+	border-radius: 50px;
 }
 
-.yellowButton {
-	background-color: #FFD90B;
-	border-right: 1px solid #DADADA;}
-.yellowButton:hover {
-	background-color: #DDC750;}
-.yellowButton:active {
-	background-color: #C8A900;}
+.sideButton {
+	background-color: #81C784;
+	color: #ffffff;}
 
 .disabledButton {
 	opacity: 0.6;
