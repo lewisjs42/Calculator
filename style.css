@@ -1,9 +1,13 @@
+* {
+	margin: 0;
+	padding: 0;
+	border: 0;
+}
+
 body {
 	font-family: Arial;
 	font-size: 24px;
 	font-weight: bold;
-	margin: 0;
-	padding: 0;
 	background-color: #4CAF50;
 }
 
@@ -11,7 +15,7 @@ body {
 	position: fixed;
 	top: 50%;
 	left: 50%;
-	width: 300px;
+	width: 301px;
 	transform: translate(-50%, -50%);
 }
 
