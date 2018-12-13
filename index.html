@@ -15,7 +15,7 @@
 			<div class="row">
 				<button onclick="dataClear()">AC</button>
 				<button onclick="del()">Del</button>
-				<button onclick="dataClear()">+/_</button>
+				<button onclick="positiveNegativeBtn()">+/-</button>
 				<button class="sideButton" onclick="selectOperator(divide)">÷</button>
 			</div>			
 			
@@ -42,8 +42,8 @@
 			
 			<div class="row">
 				<button class="bigButton" onclick="displayNumber(0)">0</button>
-				<button class="buttonBorderBottom" onclick="displayNumber('.')">.</button>
-				<button class="sideButton buttonBorderBottom" onclick="operate()">=</button>
+				<button id="decimalButton" onclick="displayNumber('.'); disableDecimal();">.</button>
+				<button class="sideButton" onclick="operate()">=</button>
 			</div>			
 			
 		</div>

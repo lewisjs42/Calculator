@@ -69,6 +69,7 @@ button:active {
 	color: #ffffff;}
 
 .disabledButton {
-	opacity: 0.6;
+	background-color: #FFEB3B;
+	opacity: 0.5;
 	cursor: not-allowed;
 }

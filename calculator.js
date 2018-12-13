@@ -1,20 +1,17 @@
 //To-do List
-// - Don't let users use more than one decimal point
-// - Don't let the user divide by 0
-// - Make it more clear what is happening
+// - Log the math for the user
 // - Clean up code and look for bugs
-// - Add "backspace" button
-// - Add keyboard support
-// - Make it look nice
+// - Round numbers
 
 //For scaling up on mobile
-var siteWidth = 325;
-var scale = screen.width / siteWidth
+let siteWidth = 325;
+let scale = screen.width / siteWidth
 
 document.querySelector('meta[name="viewport"]').setAttribute('content', 'width='+siteWidth+', initial-scale='+scale+'');
 
 function add(firstNumber, secondNumber) {
 	return firstNumber + secondNumber;
+
 }
 
 function subtract(firstNumber, secondNumber) {
@@ -26,7 +23,14 @@ function multiply(firstNumber, secondNumber) {
 }
 
 function divide(firstNumber, secondNumber) {
-	return firstNumber / secondNumber;
+	if (secondNumber == 0) {
+		
+		//If user divides by 0
+		document.body.style.backgroundColor = "#f44336";
+		return ":\(";
+	} else {
+		return firstNumber / secondNumber;
+	}
 }
 
 function operate() {
@@ -68,7 +72,11 @@ function dataClear() {
 	secondNumber = 0;
 	
 	console.log(displayValue + operator + firstNumber + secondNumber);
+	enableDecimal(); //Enables the decimal button after data is cleared
 	displayClear();
+	
+	//Resets divide by 0 error
+	document.body.style.backgroundColor = "#4CAF50";
 }
 
 //Stores selected operator and the first number
@@ -76,10 +84,45 @@ function selectOperator(o) {
 	operator = o;
 	firstNumber = displayValue;
 	
+	enableDecimal(); //Enables the decimal button after an operator is selected
+	
 	displayClear(); //Clears the display
 	
 	console.log(operator);
 	console.log("First Number: " + firstNumber);
+}
+
+function disableDecimal() {
+	document.getElementById("decimalButton").disabled = true;
+	document.getElementById("decimalButton").classList.add('disabledButton');
+	console.log("Decimal button disabled.");
+}
+
+function enableDecimal() {
+	document.getElementById("decimalButton").disabled = false;
+	document.getElementById("decimalButton").classList.remove('disabledButton');
+	console.log("Decimal button enabled");
+}
+
+//Changes positive to negative or negative to positive
+function positiveNegativeBtn() {
+	if (Number(displayValue > 0)) {
+		displayValue = Number("-" + displayValue);
+	} else {
+		displayValue = displayValue *= -1; //Converts negative number to a positive number
+	}
+	
+	document.getElementById("display").innerHTML = displayValue;
+}
+
+//Removes the last number displayed
+function del() {
+	let lastNumChar = displayValue.toString();
+	lastNumChar = lastNumChar.substring(0, lastNumChar.length -1);
+	console.log(lastNumChar);
+	
+	displayValue = Number(lastNumChar);
+	document.getElementById("display").innerHTML = displayValue;
 }
 
 
